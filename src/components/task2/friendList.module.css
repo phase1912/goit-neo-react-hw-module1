@@ -1,0 +1,5 @@
+.UlContainer {
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+}
