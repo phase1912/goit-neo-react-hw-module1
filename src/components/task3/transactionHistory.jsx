@@ -12,11 +12,8 @@ const TransactionHistory = ({ transactions }) => {
             </thead>
 
             <tbody>
-            {transactions.map(({ type, amount, currency }, index) => (
-                <tr
-                    key={index}
-                    className={`${index % 2 === 0 ? styles.evenRow : styles.oddRow} ${styles.hoverRow}`}
-                >
+            {transactions.map(({ type, amount, currency, id }) => (
+                <tr key={id}>
                     <td className={styles.td}>{type}</td>
                     <td className={styles.td}>{amount}</td>
                     <td className={styles.td}>{currency}</td>
