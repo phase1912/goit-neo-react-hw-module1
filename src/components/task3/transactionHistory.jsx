@@ -1,22 +1,25 @@
-import './transactionHistory.module.css';
+import styles from './transactionHistory.module.css';
 
 const TransactionHistory = ({ transactions }) => {
     return (
-        <table>
-            <thead>
+        <table className={styles.table}>
+            <thead className={styles.thead}>
             <tr>
-                <th>Type</th>
-                <th>Amount</th>
-                <th>Currency</th>
+                <th className={styles.th}>Type</th>
+                <th className={styles.th}>Amount</th>
+                <th className={styles.th}>Currency</th>
             </tr>
             </thead>
 
             <tbody>
-            {transactions.map(({ type, amount, currency }) => (
-                <tr>
-                    <td>{type}</td>
-                    <td>{amount}</td>
-                    <td>{currency}</td>
+            {transactions.map(({ type, amount, currency }, index) => (
+                <tr
+                    key={index}
+                    className={`${index % 2 === 0 ? styles.evenRow : styles.oddRow} ${styles.hoverRow}`}
+                >
+                    <td className={styles.td}>{type}</td>
+                    <td className={styles.td}>{amount}</td>
+                    <td className={styles.td}>{currency}</td>
                 </tr>
             ))}
             </tbody>
